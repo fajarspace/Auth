@@ -1,13 +1,16 @@
 ## Testing
 
 - get all data
+
 GET http://localhost:5000/users
 
-### get single user
-### GET http://localhost:5000/users/2b27b128-3525-420a-ae13-35814857c6a1
+- get single user
 
-### create user
-### POST http://localhost:5000/users
+GET http://localhost:5000/users/2b27b128-3525-420a-ae13-35814857c6a1
+
+- create user
+
+POST http://localhost:5000/users
 ```
 {
     "name": "agung",
