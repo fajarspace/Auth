@@ -13,10 +13,11 @@ Content-Type: application/json
 
 {
     "name": "agung",
+    "username": "agungp",
     "email": "agung@gmail.com",
     "password": "123456",
     "confPassword": "123456",
-    "role": "user"
+    "role": "admin"
 }
 
 ### //update user

@@ -4,7 +4,7 @@ import argon2 from "argon2";
 export const getUsers = async(req, res) => {
     try {
         const response = await User.findAll({
-            attributes: ['uuid','name','email','role']
+            attributes: ['uuid','name','username','email','role']
         });
         res.status(200).json(response);
     } catch (error) {
@@ -14,7 +14,7 @@ export const getUsers = async(req, res) => {
 export const getUserById = async(req, res) => {
     try {
         const response = await User.findOne({
-            attributes: ['uuid','name','email','role'],
+            attributes: ['uuid','name','username','email','role'],
             where: {
                 uuid: req.params.id
             }
@@ -25,7 +25,7 @@ export const getUserById = async(req, res) => {
     }
 }
 export const createUser = async(req, res) => {
-    const {name, email, password, confPassword, role} = req.body;
+    const {name, username, email, password, confPassword, role} = req.body;
     if (password !== confPassword) return res.status(400).json({msg: "password & confirm password tidak cocok"});
     
     const hashPassword = await argon2.hash(password);
@@ -33,6 +33,7 @@ export const createUser = async(req, res) => {
         await User.create({
             name: name,
             email: email,
+            username: username,
             password: hashPassword,
             role: role
         });
