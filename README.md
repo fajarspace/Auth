@@ -1,16 +1,16 @@
 ## Testing
 
-- get all data
+get all data
 
-GET http://localhost:5000/users
+- GET http://localhost:5000/users
 
-- get single user
+get single user
 
-GET http://localhost:5000/users/2b27b128-3525-420a-ae13-35814857c6a1
+- GET http://localhost:5000/users/2b27b128-3525-420a-ae13-35814857c6a1
 
-- create user
+create user
 
-POST http://localhost:5000/users
+- POST http://localhost:5000/users
 ```
 {
     "name": "agung",
@@ -21,8 +21,9 @@ POST http://localhost:5000/users
 }
 ```
 
-### update user
-### PATCH  http://localhost:5000/users/f8ef9bcb-e186-4c03-a889-d8a7efd443dd
+update user
+
+- PATCH  http://localhost:5000/users/f8ef9bcb-e186-4c03-a889-d8a7efd443dd
 ```
 {
     "name": "agung akwokaw",
@@ -33,5 +34,6 @@ POST http://localhost:5000/users
 }
 ```
 
-### delete user
-### DELETE http://localhost:5000/users/f8ef9bcb-e186-4c03-a889-d8a7efd443dd
+delete user
+
+- DELETE http://localhost:5000/users/f8ef9bcb-e186-4c03-a889-d8a7efd443dd
