@@ -9,9 +9,9 @@ dotenv.config()
 
 const app = express();
 
-(async()=>{
-    await db.sync();
-})();
+//(async()=>{
+//    await db.sync();
+//})();
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
