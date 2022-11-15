@@ -3,13 +3,17 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "fajar",
-    "email": "fajar@gmail.com",
+    "name": "agung",
+    "email": "agung@gmail.com",
     "password": "123456",
     "confPassword": "123456",
-    "role": "admin"
+    "role": "user"
 }
 
 ###
 // get all data
 GET http://localhost:5000/users
+
+###
+// get single user
+GET http://localhost:5000/users/2b27b128-3525-420a-ae13-35814857c6a1
