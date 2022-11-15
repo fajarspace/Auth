@@ -4,7 +4,7 @@ import Users from "./UsersModel.js";
 
 const {DataTypes} = Sequelize;
 
-const Jadwal = db.define('users',{
+const Jadwals = db.define('jadwal',{
     uuid:{
         type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,
@@ -44,4 +44,4 @@ Jadwal.belongsTo(Users, {
     foreignKey: 'userId'
 });
 
-export default Jadwal;
+export default Jadwals;
