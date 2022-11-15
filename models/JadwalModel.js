@@ -22,13 +22,13 @@ const Jadwals = db.define('jadwal',{
         }
     },
     jam:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    UserId:{
+    userId:{
         type: DataTypes.INTEGER,
         allowNull: false,
         validate:{
@@ -39,8 +39,8 @@ const Jadwals = db.define('jadwal',{
     freezeTableName: true
 });
 
-Users.hasMany(Jadwal);
-Jadwal.belongsTo(Users, {
+Users.hasMany(Jadwals);
+Jadwals.belongsTo(Users, {
     foreignKey: 'userId'
 });
 
