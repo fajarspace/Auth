@@ -67,13 +67,25 @@ export const updateUser = async(req, res) => {
                 id: user.id
             }
         });
-        res.status(201).json({msg: "register berhasil!"});
+        res.status(200).json({msg: "user updated!"});
     } catch (error) {
         return res.status(400).json({msg: error.message});
     }
-
-
 }
-export const deleteUser = (req, res) => {
-    
+export const deleteUser = async(req, res) => {
+    const user = await User.findOne({
+        where: {
+            uuid: req.params.id
+        }
+    });
+    try {
+        await User.destroy({
+            where: {
+                id: user.id
+            }
+        });
+        res.status(200).json({msg: "user deleted!"});
+    } catch (error) {
+        return res.status(400).json({msg: error.message});
+    }
 }
