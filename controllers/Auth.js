@@ -19,6 +19,20 @@ export const login = async(req, res) => {
     res.status(200).json({uuid, name, email, username, role})
 }
 
+export const HaloBang = async(req, res) => {
+    if(!req.session.userId){
+        return res.status(401).json({msg: "anda harus login terlebih dahulu"});
+    }
+    const user = await User.findOne({
+        attributes: ['uuid','name','username','email','role'],
+        where: {
+            uuid: req.body.userId
+        }
+    });
+    if(!user) return res.status(404).json({msg: "user tidak ditemukan"});
+    res.status(200).json(user)
+}
+
 export const logOut = (req, res) => {
     req.session.destroy((err) =>{
         if(err) return res.status(400).json({msg: "tidak dapat logout"});
