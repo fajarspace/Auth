@@ -11,7 +11,7 @@ hugo
 
 git add .
 
-msg="rebuilding site `date`"
+msg="rebuilding site ✧*｡٩(ˊᗜˋ*)و✧*｡ `date`"
 if [ $# -eq 1 ]
   then msg="$1"
 fi

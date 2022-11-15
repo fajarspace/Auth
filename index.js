@@ -19,7 +19,9 @@ app.use(cors({
     credentials: true,
     origin: 'http://localhost:3000'
 }));
+
 app.use(express.json())
+
 app.listen(process.env.APP_PORT, ()=> {
     console.log('Server jalan...');
 });
