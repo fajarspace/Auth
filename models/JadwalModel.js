@@ -13,7 +13,7 @@ const Jadwals = db.define('jadwal',{
             notEmpty: true
         }
     },
-    name:{
+    asisten:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
@@ -21,8 +21,24 @@ const Jadwals = db.define('jadwal',{
             len: [3, 100]
         }
     },
-    jam:{
-        type: DataTypes.INTEGER,
+    hari:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+            notEmpty: true,
+            len: [3, 100]
+        }
+    },
+    kelas:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+            notEmpty: true,
+            len: [3, 100]
+        }
+    },
+    waktu:{
+        type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
