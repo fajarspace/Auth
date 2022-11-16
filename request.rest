@@ -4,7 +4,7 @@ GET http://localhost:5000/users
 
 ###
 // get single user
-GET http://localhost:5000/users/2b27b128-3525-420a-ae13-35814857c6a1
+GET http://localhost:5000/users/52359d1f-4593-46a4-b085-5d03deb188f0
 
 ### 
 //create user
@@ -12,22 +12,22 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "agung",
-    "username": "agungp",
-    "email": "agung@gmail.com",
+    "name": "client",
+    "username": "ngeteh",
+    "email": "ngeteh@gmail.com",
     "password": "123456",
     "confPassword": "123456",
-    "role": "admin"
+    "role": "user"
 }
 
 ### //update user
-PATCH  http://localhost:5000/users/c8b5f898-8db7-4960-afdd-2496341548c7
+PATCH  http://localhost:5000/users/27cfd26c-af9c-46d2-aed1-21d18be0670d
 Content-Type: application/json
 
 {
-    "name": "agung akwokaw",
-    "username":"agungn",
-    "email": "agung@gmail.com",
+    "name": "clientsss",
+    "username": "ngeteh",
+    "email": "ngeteh@gmail.com",
     "password": "123456",
     "confPassword": "123456",
     "role": "user"
@@ -35,7 +35,7 @@ Content-Type: application/json
 
 ###
 // delete user
-DELETE http://localhost:5000/users/f8ef9bcb-e186-4c03-a889-d8a7efd443dd
+DELETE http://localhost:5000/users/27cfd26c-af9c-46d2-aed1-21d18be0670d
 
 ###
 // login user
@@ -43,10 +43,14 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "username": "agungn",
+    "username": "fajarspace",
     "password": "123456"
 }
 
 ###
 // halobang, cek jika sudah login atau belum
 GET http://localhost:5000/halo
+
+###
+// logout
+DELETE http://localhost:5000/logout
