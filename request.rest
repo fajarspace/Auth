@@ -35,3 +35,13 @@ Content-Type: application/json
 ###
 // delete user
 DELETE http://localhost:5000/users/f8ef9bcb-e186-4c03-a889-d8a7efd443dd
+
+###
+// login user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "fajarspace",
+    "password": "123456"
+}

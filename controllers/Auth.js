@@ -1,7 +1,7 @@
 import User from "../models/UsersModel.js";
 import argon2 from "argon2";
 
-export const login = async(req, res) => {
+export const Login = async(req, res) => {
     const user = await User.findOne({
         where: {
             username: req.body.username
@@ -13,10 +13,10 @@ export const login = async(req, res) => {
     req.session.userId = user.uuid;
     const uuid = user.uuid;
     const name = user.name;
-    const email = user.email;
     const username = user.username;
+    const email = user.email;
     const role = user.role;
-    res.status(200).json({uuid, name, email, username, role})
+    res.status(200).json({uuid, name, username, email, role})
 }
 
 export const HaloBang = async(req, res) => {
