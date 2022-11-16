@@ -21,11 +21,12 @@ Content-Type: application/json
 }
 
 ### //update user
-PATCH  http://localhost:5000/users/f8ef9bcb-e186-4c03-a889-d8a7efd443dd
+PATCH  http://localhost:5000/users/c8b5f898-8db7-4960-afdd-2496341548c7
 Content-Type: application/json
 
 {
     "name": "agung akwokaw",
+    "username":"agungn",
     "email": "agung@gmail.com",
     "password": "123456",
     "confPassword": "123456",
@@ -42,6 +43,10 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "username": "fajarspace",
+    "username": "agungn",
     "password": "123456"
 }
+
+###
+// halobang, cek jika sudah login atau belum
+GET http://localhost:5000/halo
