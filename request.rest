@@ -17,7 +17,7 @@ Content-Type: application/json
     "email": "ngeteh@gmail.com",
     "password": "123456",
     "confPassword": "123456",
-    "role": "user"
+    "role": "asisten"
 }
 
 ### //update user
@@ -38,7 +38,7 @@ Content-Type: application/json
 DELETE http://localhost:5000/users/27cfd26c-af9c-46d2-aed1-21d18be0670d
 
 ###
-// login admin
+// login instruktur
 POST http://localhost:5000/login
 Content-Type: application/json
 
@@ -48,7 +48,7 @@ Content-Type: application/json
 }
 
 ###
-// login user
+// login asisten
 POST http://localhost:5000/login
 Content-Type: application/json
 

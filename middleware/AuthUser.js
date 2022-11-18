@@ -15,13 +15,13 @@ export const verifyUser = async(req, res, next) => {
     next();
 }
 
-export const AdminOnly = async(req, res, next) => {
+export const InstrukturOnly = async(req, res, next) => {
     const user = await User.findOne({
         where: {
             uuid: req.session.userId
         }
     });
     if(!user) return res.status(404).json({msg: "user tidak ditemukan"});
-    if(user.role !== "admin") return res.status(403).json({msg: "Akses tertolack!"})
+    if(user.role !== "instruktur") return res.status(403).json({msg: "Akses tertolack!"})
     next();
 }
