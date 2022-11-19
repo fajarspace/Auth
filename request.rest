@@ -64,3 +64,20 @@ GET http://localhost:5000/halo
 ###
 // logout
 DELETE http://localhost:5000/logout
+
+
+###
+// get all jadwals
+GET http://localhost:5000/jadwals
+
+### // post data jadwal
+POST http://localhost:5000/jadwals
+Content-Type: application/json
+
+{
+    "asisten" : "romdon",
+    "hari" : "sabtu",
+    "kelas" : "ti 20 a 3",
+    "waktu" : "jam 10"
+
+}
