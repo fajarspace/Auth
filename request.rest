@@ -70,6 +70,11 @@ DELETE http://localhost:5000/logout
 // get all jadwals
 GET http://localhost:5000/jadwals
 
+###
+// get single jadwals
+GET http://localhost:5000/jadwals/58ecfd8f-4fdc-4111-ba8a-8d74c5f59642
+
+
 ### // post data jadwal
 POST http://localhost:5000/jadwals
 Content-Type: application/json

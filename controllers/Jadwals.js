@@ -7,17 +7,21 @@ export const getJadwals = async (req, res) =>{
         let response;
         if(req.role === "instruktur"){
             response = await Jadwal.findAll({
+                attributes:['uuid','asisten','hari','kelas','waktu'],
                 include:[{
-                    model: User
+                    model: User,
+                    attributes:['name','email']
                 }]
             });
         }else{
             response = await Jadwal.findAll({
+                attributes:['uuid','asisten','hari','kelas','waktu'],
                 where:{
                     userId: req.userId
                 },
                 include:[{
-                    model: User
+                    model: User,
+                    attributes:['name','email']
                 }]
             });
         }
@@ -28,7 +32,41 @@ export const getJadwals = async (req, res) =>{
 }
 
 export const getJadwalById = async(req, res) =>{
-   
+    try {
+        const jadwal = await Jadwal.findOne({
+            where:{
+                uuid: req.params.id
+            }
+        });
+        if(!jadwal) return res.status(404).json({msg: "Data tidak ditemukan"});
+        let response;
+        if(req.role === "instruktur"){
+            response = await Jadwal.findOne({
+                attributes:['uuid','asisten','hari','kelas','waktu'],
+                where:{
+                    id: req.params.id
+                },
+                include:[{
+                    model: User,
+                    attributes:['name','email']
+                }]
+            });
+        }else{
+            response = await Jadwal.findOne({
+                attributes:['uuid','asisten','hari','kelas','waktu'],
+                where:{
+                    [Op.and]:[{id: jadwal.id}, {userId: req.userId}]
+                },
+                include:[{
+                    model: User,
+                    attributes:['name','email']
+                }]
+            });
+        }
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
 }
 
 export const createJadwal = async(req, res) =>{
