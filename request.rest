@@ -72,7 +72,7 @@ GET http://localhost:5000/jadwals
 
 ###
 // get single jadwals
-GET http://localhost:5000/jadwals/58ecfd8f-4fdc-4111-ba8a-8d74c5f59642
+GET http://localhost:5000/jadwals/05999f36-4bbd-4cce-a4a3-cbb5c1dee90e
 
 
 ### // post data jadwal
@@ -83,6 +83,18 @@ Content-Type: application/json
     "asisten" : "romdon",
     "hari" : "sabtu",
     "kelas" : "ti 20 a 3",
+    "waktu" : "jam 10"
+
+}
+
+### // update jadwal
+PATCH http://localhost:5000/jadwals/05999f36-4bbd-4cce-a4a3-cbb5c1dee90e
+Content-Type: application/json
+
+{
+    "asisten" : "ghifari",
+    "hari" : "minggu",
+    "kelas" : "ti.20.c3",
     "waktu" : "jam 10"
 
 }

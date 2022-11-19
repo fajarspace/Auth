@@ -86,7 +86,32 @@ export const createJadwal = async(req, res) =>{
 }
 
 export const updateJadwal = async(req, res) =>{
-    
+    try {
+        const jadwal = await Jadwal.findOne({
+            where:{
+                uuid: req.params.id
+            }
+        });
+        if(!jadwal) return res.status(404).json({msg: "Data tidak ditemukan"});
+        const {asisten, hari, kelas, waktu} = req.body;
+        if(req.role === "instruktur"){
+            await Jadwal.update({asisten, hari, kelas, waktu},{
+                where: {
+                    id: jadwal.id
+                }
+            })
+        }else{
+            if(req.userId !== jadwal.userId) return res.status(403).json({msg: "akses tertolack!"});
+            await Jadwal.update({asisten, hari, kelas, waktu},{
+                where:{
+                    [Op.and]:[{id: jadwal.id}, {userId: req.userId}]
+                }
+            })
+        }
+        res.status(200).json({msg: "jadwal updated!"});
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
 }
 
 export const deleteJadwal = async(req, res) =>{
