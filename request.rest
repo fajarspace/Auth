@@ -80,7 +80,7 @@ POST http://localhost:5000/jadwals
 Content-Type: application/json
 
 {
-    "asisten" : "romdon",
+    "asisten" : "nuryadi",
     "hari" : "sabtu",
     "kelas" : "ti 20 a 3",
     "waktu" : "jam 10"
@@ -98,3 +98,7 @@ Content-Type: application/json
     "waktu" : "jam 10"
 
 }
+
+###
+// delete jadwals
+DELETE http://localhost:5000/jadwals/55369ff7-342f-4726-89aa-b181b198b316
